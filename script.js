@@ -7,9 +7,9 @@ generateGrid();
 function generateGrid() {
   lockGame = false;
   grid.innerHTML = "";
-  for (var i = 0; i < 10; i++) {
+  for (let i = 0; i < 10; i++) {
     row = grid.insertRow(i);
-    for (var j = 0; j < 10; j++) {
+    for (let j = 0; j < 10; j++) {
       cell = row.insertCell(j);
       cell.onclick = () => {
         init(this);
@@ -20,4 +20,15 @@ function generateGrid() {
     }
   }
   generateMines();
+}
+
+// Generate mines randomly
+function generateMines() {
+  // Add 20 mines to game
+  for (let i = 0; i < 20; i++) {
+    let row = Math.floor(Math.random() * 10);
+    let column = Math.floor(Math.random() * 10);
+    let cell = grid.rows[row].cells[column];
+    cell.setAttribute("mine", "true");
+  }
 }
