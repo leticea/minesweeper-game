@@ -1,5 +1,6 @@
 const grid = document.getElementById("grid");
 let lockGame = false;
+// Set test mode to true if you want see mines location
 const testMode = false;
 generateGrid();
 
@@ -30,5 +31,8 @@ function generateMines() {
     let column = Math.floor(Math.random() * 10);
     let cell = grid.rows[row].cells[column];
     cell.setAttribute("mine", "true");
+    if (testMode) {
+      cell.innerHTML = "X";
+    }
   }
 }
