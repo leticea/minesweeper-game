@@ -61,4 +61,8 @@ function checkGameComplete() {
       }
     }
   }
+  if (gameComplete) {
+    alert("You Found All Mines!");
+    revealMines();
+  }
 }
