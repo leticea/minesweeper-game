@@ -82,6 +82,41 @@ function init(cell) {
       let mineCount = 0;
       let cellRow = cell.parentNode.rowIndex;
       let cellColumn = cell.cellIndex;
+      for (
+        let i = Math.max(cellRow - 1, 0);
+        i <= Math.min(cellRow + 1, 9);
+        i++
+      ) {
+        for (
+          let j = Math.max(cellColumn - 1, 0);
+          j <= Math.min(cellColumn + 1, 9);
+          j++
+        ) {
+          if (grid.rows[i].cells[j].getAttribute("mine") == "true") {
+            mineCount++;
+          }
+        }
+      }
+      cell.innerHTML = mineCount;
+      if (mineCount == 0) {
+        // If cell doesn't have mine
+        for (
+          let i = Math.max(cellRow - 1, 0);
+          i <= Math.min(cellRow + 1, 9);
+          i++
+        ) {
+          for (
+            let j = Math.max(cellColumn - 1, 0);
+            j <= Math.min(cellColumn + 1, 9);
+            j++
+          ) {
+            if (grid.rows[i].cells[j].innerHTML == "") {
+              init(grid.rows[i].cells[j]);
+            }
+          }
+        }
+      }
+      checkGameComplete();
     }
   }
 }
