@@ -48,3 +48,17 @@ function revealMines() {
     }
   }
 }
+
+function checkGameComplete() {
+  let gameComplete = true;
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      if (
+        grid.rows[i].cells[j].getAttribute("mine") == "false" &&
+        (grid.rows[i].cells[j].innerHTML = "")
+      ) {
+        gameComplete = false;
+      }
+    }
+  }
+}
