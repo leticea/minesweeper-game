@@ -1,6 +1,6 @@
 const grid = document.getElementById("grid");
 let lockGame = false;
-// Set test mode to true if you want see mines location
+// Set test mode to true if you want to see mine locations
 const testMode = false;
 generateGrid();
 
@@ -64,5 +64,24 @@ function checkGameComplete() {
   if (gameComplete) {
     alert("You Found All Mines!");
     revealMines();
+  }
+}
+
+function init(cell) {
+  // Check game completed or not
+  if (lockGame) {
+    return;
+  } else {
+    // Check user clicked on mine
+    if (cell.getAttribute("mine") == "true") {
+      revealMines();
+      lockGame = true;
+    } else {
+      cell.className = "active";
+      // Display number of mines around cell
+      let mineCount = 0;
+      let cellRow = cell.parentNode.rowIndex;
+      let cellColumn = cell.cellIndex;
+    }
   }
 }
