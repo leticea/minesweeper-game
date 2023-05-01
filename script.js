@@ -12,11 +12,11 @@ function generateGrid() {
     row = grid.insertRow(i);
     for (let j = 0; j < 10; j++) {
       cell = row.insertCell(j);
-      cell.onclick = () => {
+      cell.onclick = function () {
         init(this);
       };
       let mine = document.createAttribute("mine");
-      mine.value = false;
+      mine.value = "false";
       cell.setAttributeNode(mine);
     }
   }
@@ -55,7 +55,7 @@ function checkGameComplete() {
     for (let j = 0; j < 10; j++) {
       if (
         grid.rows[i].cells[j].getAttribute("mine") == "false" &&
-        (grid.rows[i].cells[j].innerHTML = "")
+        grid.rows[i].cells[j].innerHTML == ""
       ) {
         gameComplete = false;
       }

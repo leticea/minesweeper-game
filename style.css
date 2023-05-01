@@ -17,6 +17,7 @@ h1 {
 #grid {
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 #grid tr td {
