@@ -26,3 +26,18 @@ h1 {
   height: 20px;
   text-align: center;
 }
+
+#grid tr td.active {
+  background-color: #333;
+}
+
+#grid tr td.mine {
+  background-color: #d84315;
+}
+
+button {
+  margin: 12px 0;
+  padding: 4px 0;
+  border: none;
+  cursor: pointer;
+}
