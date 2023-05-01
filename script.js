@@ -16,6 +16,8 @@ function generateGrid() {
       };
       let mine = document.createAttribute("mine");
       mine.value = false;
+      cell.setAttributeNode(mine);
     }
   }
+  generateMines();
 }
