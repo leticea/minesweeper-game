@@ -36,3 +36,15 @@ function generateMines() {
     }
   }
 }
+
+// Highlight all mines red
+function revealMines() {
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      let cell = grid.rows[i].cells[j];
+      if (cell.getAttribute("mine") == "true") {
+        cell.className = "mine";
+      }
+    }
+  }
+}
